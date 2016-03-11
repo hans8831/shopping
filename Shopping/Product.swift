@@ -10,12 +10,12 @@ struct Product {
     
     let name : String
     let unitName : String
-    let price: Price
+    let unitPrice: Price
     
-    init(name: String, unitName: String, price : Price) {
+    init(name: String, unitName: String, unitPrice : Price) {
         self.name = name
         self.unitName = unitName
-        self.price = price
+        self.unitPrice = unitPrice
     }
     
 }

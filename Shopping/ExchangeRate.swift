@@ -21,8 +21,6 @@ struct ExchangeRate {
     }
     
     init?(dict: [String: AnyObject]) {
-        let mirror = Mirror(reflecting: dict["rate"]!)
-        print("rate: \(mirror.subjectType)")
         if let from = dict["from"] as? String,
             let to = dict["to"] as? String,
             let rate = dict["rate"] as? NSString {
