@@ -7,12 +7,15 @@
 //
 
 struct Product {
-
-    let name : String
     
-    init(name: String) {
+    let name : String
+    let unitName : String
+    let price: Price
+    
+    init(name: String, unitName: String, price : Price) {
         self.name = name
+        self.unitName = unitName
+        self.price = price
     }
     
-
 }
