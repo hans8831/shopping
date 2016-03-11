@@ -6,8 +6,8 @@
 //  Copyright © 2016 Roland Michelberger. All rights reserved.
 //
 
-import UIKit
-
-class Constants: NSObject {
-
+struct Constants {
+    
+    static let JSON_RATES_API_KEY = "YOUR-API-KEY"
+    
 }

@@ -6,8 +6,13 @@
 //  Copyright © 2016 Roland Michelberger. All rights reserved.
 //
 
-import UIKit
+struct Product {
 
-class Product: NSObject {
+    let name : String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
 
 }

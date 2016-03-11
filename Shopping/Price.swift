@@ -6,8 +6,20 @@
 //  Copyright © 2016 Roland Michelberger. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class Price: NSObject {
-
+struct Price {
+    
+    let amount : NSDecimalNumber
+    let currency : Currency
+    
+    init (amount: NSDecimalNumber, currencyString : String) {
+        self.amount = amount
+        self.currency = Currency(string: currencyString)
+    }
+    
+    init (amount: NSDecimalNumber, currency : Currency) {
+        self.amount = amount
+        self.currency = currency
+    }
 }
