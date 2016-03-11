@@ -25,11 +25,11 @@ class ShoppingTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
-        let bag = Bag()
+        let bag = ProductBag(currency: .USD)
         
         XCTAssert(bag.count == 0)
         
-        let product = Product(name: "product", unitName: "unit", unitPrice: Price(amount: NSDecimalNumber(double: 0), currency: Currency.USD))
+        let product = Product(id: "_id_product", name: "product", unitName: "unit", unitPrice: Price(amount: NSDecimalNumber(double: 0), currency: .USD))
         
         bag.addProduct(product)
         

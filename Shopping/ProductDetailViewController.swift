@@ -14,7 +14,7 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var amountLabel: UILabel!
 
     var product: Product?
-    var bag: Bag?
+    var bag: ProductBag?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,5 +1,5 @@
 //
-//  Bag.swift
+//  ProductBag.swift
 //  Shopping
 //
 //  Created by Roland Michelberger on 11/03/16.
@@ -8,12 +8,19 @@
 
 import Foundation
 
-struct Bag {
+struct ProductBag {
+    
+    let currency: Currency
+    
+    init (currency: Currency) {
+        self.currency = currency
+    }
     
     let set = NSCountedSet()
     
+    // only product with same price currency can be added
     func addProduct(product: Product?) {
-        if let product = product {
+        if let product = product where product.unitPrice.currency == currency {
             set.addObject(product)
         }
     }
@@ -31,7 +38,7 @@ struct Bag {
         return 0
     }
     
-    var content : [(procuct: Product, count: Int)]? {
+    var content: [(procuct: Product, count: Int)]? {
         get {
             var content = [(procuct: Product, count: Int)]()
             
@@ -40,6 +47,19 @@ struct Bag {
             })
             
             return content
+        }
+    }
+    
+    var totalPrice: Price {
+        get {
+            var totalAmount = NSDecimalNumber(double: 0)
+            if let content = content {
+                for item in content {
+                    let itemAmount = item.procuct.unitPrice.amount.decimalNumberByMultiplyingBy(NSDecimalNumber(int: Int32(item.count)))
+                    totalAmount = totalAmount.decimalNumberByAdding(itemAmount)
+                }
+            }
+            return Price(amount: totalAmount, currency: currency)
         }
     }
     

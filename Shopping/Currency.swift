@@ -349,7 +349,7 @@ extension Currency {
         case "ZMK": self = .ZMK
         case "ZMW": self = .ZMW
         case "ZWL": self = .ZWL
-        default: self = .Unknown
+        default: self = .Unknown            
         }
     }
 }
