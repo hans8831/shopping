@@ -20,9 +20,32 @@ class PriceConverterTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testPriceConverterWithMockServer() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+        let expectation = expectationWithDescription("The completion should be called.")
+
+        let price = Price(amount: NSDecimalNumber(double: 1.0), currency: .USD)
+        
+        PriceConverter.pricesForPrice(price) { (prices, error) -> Void in
+
+            // there should be no error
+            XCTAssertNil(error)
+            // there should be data
+            XCTAssertNotNil(prices)
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(3, handler: nil)
+
+    }
+    
+    func testPrices(prices: [Price]) {
+        
+        
+        
     }
     
     func testPerformanceExample() {

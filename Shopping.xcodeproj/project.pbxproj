@@ -42,6 +42,11 @@
 		54C0BF7B1C92079D00D6A9E8 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF791C92079D00D6A9E8 /* MockServer.swift */; };
 		54C0BF7C1C92079D00D6A9E8 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF791C92079D00D6A9E8 /* MockServer.swift */; };
 		54C0BF7E1C920CAC00D6A9E8 /* PriceConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF7D1C920CAC00D6A9E8 /* PriceConverterTests.swift */; };
+		54C0BF801C92AAE400D6A9E8 /* MockServerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF7F1C92AAE400D6A9E8 /* MockServerTest.swift */; };
+		54C0BF831C92BB1500D6A9E8 /* ServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF821C92BB1500D6A9E8 /* ServerTests.swift */; };
+		54C0BF851C92C38800D6A9E8 /* ExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF841C92C38800D6A9E8 /* ExchangeRates.swift */; };
+		54C0BF861C92C38800D6A9E8 /* ExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF841C92C38800D6A9E8 /* ExchangeRates.swift */; };
+		54C0BF871C92C38800D6A9E8 /* ExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF841C92C38800D6A9E8 /* ExchangeRates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +90,9 @@
 		54C0BF751C92047100D6A9E8 /* ExchangeRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 		54C0BF791C92079D00D6A9E8 /* MockServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServer.swift; sourceTree = "<group>"; };
 		54C0BF7D1C920CAC00D6A9E8 /* PriceConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceConverterTests.swift; sourceTree = "<group>"; };
+		54C0BF7F1C92AAE400D6A9E8 /* MockServerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServerTest.swift; sourceTree = "<group>"; };
+		54C0BF821C92BB1500D6A9E8 /* ServerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTests.swift; sourceTree = "<group>"; };
+		54C0BF841C92C38800D6A9E8 /* ExchangeRates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +162,8 @@
 				54C0BF381C91E22D00D6A9E8 /* ShoppingTests.swift */,
 				54C0BF3A1C91E22D00D6A9E8 /* Info.plist */,
 				54C0BF7D1C920CAC00D6A9E8 /* PriceConverterTests.swift */,
+				54C0BF7F1C92AAE400D6A9E8 /* MockServerTest.swift */,
+				54C0BF821C92BB1500D6A9E8 /* ServerTests.swift */,
 			);
 			path = ShoppingTests;
 			sourceTree = "<group>";
@@ -174,6 +184,7 @@
 				54C0BF571C91E3C500D6A9E8 /* Price.swift */,
 				54C0BF641C91F91700D6A9E8 /* Currency.swift */,
 				54C0BF751C92047100D6A9E8 /* ExchangeRate.swift */,
+				54C0BF841C92C38800D6A9E8 /* ExchangeRates.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -189,6 +200,7 @@
 		54C0BF5B1C91E5E700D6A9E8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				54C0BF6D1C92009700D6A9E8 /* JSONParser.swift */,
 				54C0BF5C1C91E60A00D6A9E8 /* PriceConverter.swift */,
 				54C0BF601C91EC2400D6A9E8 /* Constants.swift */,
 			);
@@ -198,11 +210,18 @@
 		54C0BF681C91FF6000D6A9E8 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				54C0BF811C92B9CD00D6A9E8 /* mock */,
 				54C0BF691C92007400D6A9E8 /* Server.swift */,
-				54C0BF6D1C92009700D6A9E8 /* JSONParser.swift */,
-				54C0BF791C92079D00D6A9E8 /* MockServer.swift */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		54C0BF811C92B9CD00D6A9E8 /* mock */ = {
+			isa = PBXGroup;
+			children = (
+				54C0BF791C92079D00D6A9E8 /* MockServer.swift */,
+			);
+			name = mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +359,7 @@
 				54C0BF5D1C91E60A00D6A9E8 /* PriceConverter.swift in Sources */,
 				54C0BF6E1C92009700D6A9E8 /* JSONParser.swift in Sources */,
 				54C0BF581C91E3C500D6A9E8 /* Price.swift in Sources */,
+				54C0BF851C92C38800D6A9E8 /* ExchangeRates.swift in Sources */,
 				54C0BF241C91E22D00D6A9E8 /* AppDelegate.swift in Sources */,
 				54C0BF7A1C92079D00D6A9E8 /* MockServer.swift in Sources */,
 				54C0BF541C91E28C00D6A9E8 /* Product.swift in Sources */,
@@ -354,14 +374,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54C0BF801C92AAE400D6A9E8 /* MockServerTest.swift in Sources */,
 				54C0BF6B1C92007400D6A9E8 /* Server.swift in Sources */,
 				54C0BF661C91F91700D6A9E8 /* Currency.swift in Sources */,
 				54C0BF6F1C92009700D6A9E8 /* JSONParser.swift in Sources */,
+				54C0BF861C92C38800D6A9E8 /* ExchangeRates.swift in Sources */,
 				54C0BF621C91EC2400D6A9E8 /* Constants.swift in Sources */,
 				54C0BF391C91E22D00D6A9E8 /* ShoppingTests.swift in Sources */,
 				54C0BF551C91E28C00D6A9E8 /* Product.swift in Sources */,
 				54C0BF7E1C920CAC00D6A9E8 /* PriceConverterTests.swift in Sources */,
 				54C0BF7B1C92079D00D6A9E8 /* MockServer.swift in Sources */,
+				54C0BF831C92BB1500D6A9E8 /* ServerTests.swift in Sources */,
 				54C0BF771C92047100D6A9E8 /* ExchangeRate.swift in Sources */,
 				54C0BF5E1C91E60A00D6A9E8 /* PriceConverter.swift in Sources */,
 				54C0BF591C91E3C500D6A9E8 /* Price.swift in Sources */,
@@ -382,6 +405,7 @@
 				54C0BF781C92047100D6A9E8 /* ExchangeRate.swift in Sources */,
 				54C0BF5F1C91E60A00D6A9E8 /* PriceConverter.swift in Sources */,
 				54C0BF5A1C91E3C500D6A9E8 /* Price.swift in Sources */,
+				54C0BF871C92C38800D6A9E8 /* ExchangeRates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +483,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DMOCK";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -507,6 +532,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Shopping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.romi.Shopping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -518,6 +544,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Shopping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.romi.Shopping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -529,6 +556,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ShoppingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.romi.ShoppingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shopping.app/Shopping";
@@ -541,6 +569,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ShoppingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.romi.ShoppingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shopping.app/Shopping";
@@ -590,6 +619,7 @@
 				54C0BF4A1C91E22D00D6A9E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		54C0BF4B1C91E22D00D6A9E8 /* Build configuration list for PBXNativeTarget "ShoppingTests" */ = {
 			isa = XCConfigurationList;
@@ -598,6 +628,7 @@
 				54C0BF4D1C91E22D00D6A9E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		54C0BF4E1C91E22D00D6A9E8 /* Build configuration list for PBXNativeTarget "ShoppingUITests" */ = {
 			isa = XCConfigurationList;
@@ -606,6 +637,7 @@
 				54C0BF501C91E22D00D6A9E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
