@@ -9,11 +9,15 @@
 import UIKit
 
 class ProductTableViewCell: UITableViewCell {
-    
-    var product : Product?
-    
-    @IBOutlet weak var ProductNameLabel: UILabel!
+
+    @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var counterLabel: UILabel!
+
+    var product : Product? {
+        didSet {
+            productNameLabel.text = product?.name
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,10 +30,4 @@ class ProductTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func removeOneProductAction(sender: AnyObject) {
-    }
-    
-    @IBAction func addOneProductAction(sender: AnyObject) {
-    }
-
 }

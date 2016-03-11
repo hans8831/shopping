@@ -21,9 +21,21 @@ class ShoppingTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testBag() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let bag = Bag()
+        
+        XCTAssert(bag.count == 0)
+        
+        let product = Product(name: "product", unitName: "unit", unitPrice: Price(amount: NSDecimalNumber(double: 0), currency: Currency.USD))
+        
+        bag.addProduct(product)
+        
+        XCTAssert(bag.count == 1)
+        XCTAssert(bag.countForProduct(product) == 1)
+        
     }
     
     func testPerformanceExample() {

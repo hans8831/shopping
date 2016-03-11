@@ -23,3 +23,12 @@ struct Price {
         self.currency = currency
     }
 }
+
+extension Price {
+    
+    var asString : String {
+        get {
+            return "\(currency.rawValue) \(amount)"
+        }
+    }
+}
