@@ -24,8 +24,8 @@ class ExchangeRatesServer: Server {
      * @param source: source currency
      * @return NSURLSessionDataTask, to be able to cancel the network call
      */
-    class func exchangeRatesData(source: Currency, completion: (data: NSData?, error: NSError?) -> Void) -> NSURLSessionDataTask? {
-        let urlString = "http://apilayer.net/api/live?access_key=\(Constants.JSON_RATES_API_KEY)&source=\(source.rawValue)"
+    class func exchangeRatesData(sourceCurrency: Currency, completion: (data: NSData?, error: NSError?) -> Void) -> NSURLSessionDataTask? {
+        let urlString = "http://apilayer.net/api/live?access_key=\(Constants.JSON_RATES_API_KEY)&source=\(sourceCurrency.rawValue)"
         return data(urlString, completion: completion)
     }
 

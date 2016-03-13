@@ -1,5 +1,5 @@
 //
-//  ServerTests.swift
+//  ExchangeRatesServerTests.swift
 //  Shopping
 //
 //  Created by Roland Michelberger on 11/03/16.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class ServerTests: XCTestCase {
+class ExchangeRatesServerTests: XCTestCase {
         
     override func setUp() {
         super.setUp()
@@ -27,7 +27,7 @@ class ServerTests: XCTestCase {
         let expectation = expectationWithDescription("The completion should be called.")
         
         let currency = Currency.EUR
-        Server.exchangeRatesData(currency) { (data, error) -> Void in
+        ExchangeRatesServer.exchangeRatesData(currency) { (data, error) -> Void in
             // there should be no error
             XCTAssertNil(error)
             // there should be data
@@ -47,7 +47,7 @@ class ServerTests: XCTestCase {
         
         let currency = Currency.EUR
         
-        Server.exchangeRatesData(currency) { (data, error) -> Void in
+        ExchangeRatesServer.exchangeRatesData(currency) { (data, error) -> Void in
 
             XCTAssertNil(error)
             XCTAssertNotNil(data)
@@ -70,7 +70,6 @@ class ServerTests: XCTestCase {
         }
         waitForExpectationsWithTimeout(2, handler: nil)
     }
-    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

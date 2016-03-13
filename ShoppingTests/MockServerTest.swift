@@ -26,7 +26,7 @@ class MockServerTest: XCTestCase {
         
         let expectation = expectationWithDescription("The completion should be called.")
         
-        MockServer.exchangeRatesDataForUSD { (data, error) -> Void in
+        MockExchangeRatesServer.exchangeRatesDataForUSD { (data, error) -> Void in
             // there should be no error
             XCTAssertNil(error)
             // there should be data
@@ -58,7 +58,7 @@ class MockServerTest: XCTestCase {
         
         let expectation = expectationWithDescription("The completion should be called.")
         
-        MockServer.exchangeRatesDataForUSD { (data, error) -> Void in
+        MockExchangeRatesServer.exchangeRatesDataForUSD { (data, error) -> Void in
             // there should be no error
             XCTAssertNil(error)
             // there should be data

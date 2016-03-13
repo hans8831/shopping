@@ -29,7 +29,7 @@ class ShoppingTests: XCTestCase {
         
         XCTAssert(bag.count == 0)
         
-        let product = Product(id: "_id_product", name: "product", unitName: "unit", unitPrice: Price(amount: NSDecimalNumber(double: 0), currency: .USD))
+        let product = Product(id: "_id_product", name: "product", unitName: "unit", unitPrice: Price(amount: NSDecimalNumber(double: 0), currency: .USD), info: "Product info text")
         
         bag.addProduct(product)
         
