@@ -32,13 +32,18 @@ class MockServerTest: XCTestCase {
             // there should be data
             XCTAssertNotNil(data)
             
-            
             let result = JSONParser.exchangeRatesFromJSONRateResponseData(data!)
             
             // there should be no error
             XCTAssertNil(result.error)
             // there should be data
             XCTAssertNotNil(result.exchangeRates)
+            
+            for exchangeRate in (result.exchangeRates?.quotes)! {
+                XCTAssertEqual(exchangeRate.from , Currency.USD)
+                XCTAssert(exchangeRate.rate >= 0)
+            }
+            
             
             expectation.fulfill()
         }
@@ -64,66 +69,6 @@ class MockServerTest: XCTestCase {
         
         waitForExpectationsWithTimeout(2, handler: nil)
     }
-    
-    func testMockServerExchangeRateData() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        let expectation = expectationWithDescription("The completion should be called.")
-        
-        MockServer.exchangeRateData(Currency.EUR, to: Currency.CHF) { (data, error) -> Void in
-            // there should be no error
-            XCTAssertNil(error)
-            // there should be data
-            XCTAssertNotNil(data)
-            
-            expectation.fulfill()
-        }
-        
-        waitForExpectationsWithTimeout(2, handler: nil)
-    }
-    
-    func testMockServerExchangeRate() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        let expectation = expectationWithDescription("The completion should be called.")
-        
-        let fromCurrency = Currency.EUR
-        let toCurrency = Currency.CHF
-        MockServer.exchangeRateData(fromCurrency, to: toCurrency) { (data, error) -> Void in
-            XCTAssertNil(error)
-            XCTAssertNotNil(data)
-            
-            // data should be JSON string
-            do {
-                let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
-                
-                if let dict = json as? [String: AnyObject] {
-                    
-                    if let exchangeRate = ExchangeRate(dict: dict) {
-                        
-                        XCTAssertEqual(exchangeRate.from, fromCurrency)
-                        XCTAssertEqual(exchangeRate.to, toCurrency)
-                        XCTAssert(0.5 <= exchangeRate.rate && exchangeRate.rate <= 1.5)
-                        
-                    } else {
-                        XCTAssert(false, "\(dict) can not be converted to ExchangeRate")
-                    }
-                    
-                } else {
-                    XCTAssert(false, "\(json) is not [String: AnyObject]")
-                }
-                
-            } catch {
-                XCTAssertNil(error)
-            }
-            
-            expectation.fulfill()
-        }
-        waitForExpectationsWithTimeout(2, handler: nil)
-    }
-    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

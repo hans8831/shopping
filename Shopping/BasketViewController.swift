@@ -32,7 +32,9 @@ class BasketViewController: UIViewController, UITableViewDataSource {
         refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl) // not required when using UITableViewController
         
+        // animate refresh control
         
+        refreshControl.beginRefreshing()        
         refresh()
     }
     
@@ -48,7 +50,8 @@ class BasketViewController: UIViewController, UITableViewDataSource {
                 if let _ = error {
                     self.clearPrices()
                 } else if let prices = prices {
-                    self.prices = prices
+                    // sort currency alphabetic
+                    self.prices = prices.sort({ $0.currency.rawValue < $1.currency.rawValue })
                     self.refreshControl.endRefreshing()
                     self.tableView.reloadData()
                 }
@@ -84,7 +87,9 @@ class BasketViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
         let price = prices[indexPath.row]
-        cell.textLabel?.text = price.asString
+        // TODO: add proper number formatting
+        cell.textLabel?.text = "\(price.amount)"
+        cell.detailTextLabel?.text = price.currency.rawValue
         
         return cell
         

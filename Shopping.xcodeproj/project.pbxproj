@@ -37,9 +37,9 @@
 		54C0BF761C92047100D6A9E8 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF751C92047100D6A9E8 /* ExchangeRate.swift */; };
 		54C0BF771C92047100D6A9E8 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF751C92047100D6A9E8 /* ExchangeRate.swift */; };
 		54C0BF781C92047100D6A9E8 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF751C92047100D6A9E8 /* ExchangeRate.swift */; };
-		54C0BF7A1C92079D00D6A9E8 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF791C92079D00D6A9E8 /* MockServer.swift */; };
-		54C0BF7B1C92079D00D6A9E8 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF791C92079D00D6A9E8 /* MockServer.swift */; };
-		54C0BF7C1C92079D00D6A9E8 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF791C92079D00D6A9E8 /* MockServer.swift */; };
+		54C0BF7A1C92079D00D6A9E8 /* MockExchangeRatesServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF791C92079D00D6A9E8 /* MockExchangeRatesServer.swift */; };
+		54C0BF7B1C92079D00D6A9E8 /* MockExchangeRatesServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF791C92079D00D6A9E8 /* MockExchangeRatesServer.swift */; };
+		54C0BF7C1C92079D00D6A9E8 /* MockExchangeRatesServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF791C92079D00D6A9E8 /* MockExchangeRatesServer.swift */; };
 		54C0BF7E1C920CAC00D6A9E8 /* PriceConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF7D1C920CAC00D6A9E8 /* PriceConverterTests.swift */; };
 		54C0BF801C92AAE400D6A9E8 /* MockServerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF7F1C92AAE400D6A9E8 /* MockServerTest.swift */; };
 		54C0BF831C92BB1500D6A9E8 /* ServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF821C92BB1500D6A9E8 /* ServerTests.swift */; };
@@ -53,6 +53,12 @@
 		54FE74671C93038D0086C825 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FE74651C93038D0086C825 /* ProductDetailViewController.swift */; };
 		54FE74691C9316F20086C825 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FE74681C9316F20086C825 /* BasketViewController.swift */; };
 		54FE746A1C9316F20086C825 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FE74681C9316F20086C825 /* BasketViewController.swift */; };
+		54FE746C1C95FCF20086C825 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FE746B1C95FCF20086C825 /* Shop.swift */; };
+		54FE746D1C95FCF20086C825 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FE746B1C95FCF20086C825 /* Shop.swift */; };
+		54FE746E1C95FCF20086C825 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FE746B1C95FCF20086C825 /* Shop.swift */; };
+		54FE74741C96003D0086C825 /* ExchangeRatesServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FE74731C96003D0086C825 /* ExchangeRatesServer.swift */; };
+		54FE74751C96003D0086C825 /* ExchangeRatesServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FE74731C96003D0086C825 /* ExchangeRatesServer.swift */; };
+		54FE74761C96003D0086C825 /* ExchangeRatesServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FE74731C96003D0086C825 /* ExchangeRatesServer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +99,7 @@
 		54C0BF691C92007400D6A9E8 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		54C0BF6D1C92009700D6A9E8 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		54C0BF751C92047100D6A9E8 /* ExchangeRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
-		54C0BF791C92079D00D6A9E8 /* MockServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServer.swift; sourceTree = "<group>"; };
+		54C0BF791C92079D00D6A9E8 /* MockExchangeRatesServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockExchangeRatesServer.swift; sourceTree = "<group>"; };
 		54C0BF7D1C920CAC00D6A9E8 /* PriceConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceConverterTests.swift; sourceTree = "<group>"; };
 		54C0BF7F1C92AAE400D6A9E8 /* MockServerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServerTest.swift; sourceTree = "<group>"; };
 		54C0BF821C92BB1500D6A9E8 /* ServerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTests.swift; sourceTree = "<group>"; };
@@ -102,6 +108,8 @@
 		54FE74621C92F8E70086C825 /* ProductBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductBag.swift; sourceTree = "<group>"; };
 		54FE74651C93038D0086C825 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		54FE74681C9316F20086C825 /* BasketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		54FE746B1C95FCF20086C825 /* Shop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		54FE74731C96003D0086C825 /* ExchangeRatesServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRatesServer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +223,7 @@
 				54C0BF6D1C92009700D6A9E8 /* JSONParser.swift */,
 				54C0BF5C1C91E60A00D6A9E8 /* PriceConverter.swift */,
 				54C0BF601C91EC2400D6A9E8 /* Constants.swift */,
+				54FE746B1C95FCF20086C825 /* Shop.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -224,6 +233,7 @@
 			children = (
 				54C0BF811C92B9CD00D6A9E8 /* mock */,
 				54C0BF691C92007400D6A9E8 /* Server.swift */,
+				54FE74731C96003D0086C825 /* ExchangeRatesServer.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -231,7 +241,7 @@
 		54C0BF811C92B9CD00D6A9E8 /* mock */ = {
 			isa = PBXGroup;
 			children = (
-				54C0BF791C92079D00D6A9E8 /* MockServer.swift */,
+				54C0BF791C92079D00D6A9E8 /* MockExchangeRatesServer.swift */,
 			);
 			name = mock;
 			sourceTree = "<group>";
@@ -375,13 +385,15 @@
 				54C0BF581C91E3C500D6A9E8 /* Price.swift in Sources */,
 				54C0BF851C92C38800D6A9E8 /* ExchangeRates.swift in Sources */,
 				54C0BF241C91E22D00D6A9E8 /* AppDelegate.swift in Sources */,
-				54C0BF7A1C92079D00D6A9E8 /* MockServer.swift in Sources */,
+				54C0BF7A1C92079D00D6A9E8 /* MockExchangeRatesServer.swift in Sources */,
 				54C0BF541C91E28C00D6A9E8 /* Product.swift in Sources */,
 				54C0BF651C91F91700D6A9E8 /* Currency.swift in Sources */,
 				54C0BF6A1C92007400D6A9E8 /* Server.swift in Sources */,
 				54FE745E1C92E30E0086C825 /* ProductListViewController.swift in Sources */,
 				54C0BF761C92047100D6A9E8 /* ExchangeRate.swift in Sources */,
 				54C0BF611C91EC2400D6A9E8 /* Constants.swift in Sources */,
+				54FE74741C96003D0086C825 /* ExchangeRatesServer.swift in Sources */,
+				54FE746C1C95FCF20086C825 /* Shop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,12 +410,14 @@
 				54C0BF391C91E22D00D6A9E8 /* ShoppingTests.swift in Sources */,
 				54C0BF551C91E28C00D6A9E8 /* Product.swift in Sources */,
 				54C0BF7E1C920CAC00D6A9E8 /* PriceConverterTests.swift in Sources */,
-				54C0BF7B1C92079D00D6A9E8 /* MockServer.swift in Sources */,
+				54C0BF7B1C92079D00D6A9E8 /* MockExchangeRatesServer.swift in Sources */,
 				54FE74641C92F8E70086C825 /* ProductBag.swift in Sources */,
 				54C0BF831C92BB1500D6A9E8 /* ServerTests.swift in Sources */,
 				54C0BF771C92047100D6A9E8 /* ExchangeRate.swift in Sources */,
 				54C0BF5E1C91E60A00D6A9E8 /* PriceConverter.swift in Sources */,
 				54C0BF591C91E3C500D6A9E8 /* Price.swift in Sources */,
+				54FE74751C96003D0086C825 /* ExchangeRatesServer.swift in Sources */,
+				54FE746D1C95FCF20086C825 /* Shop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,9 +433,11 @@
 				54C0BF441C91E22D00D6A9E8 /* ShoppingUITests.swift in Sources */,
 				54FE74671C93038D0086C825 /* ProductDetailViewController.swift in Sources */,
 				54C0BF561C91E28C00D6A9E8 /* Product.swift in Sources */,
-				54C0BF7C1C92079D00D6A9E8 /* MockServer.swift in Sources */,
+				54C0BF7C1C92079D00D6A9E8 /* MockExchangeRatesServer.swift in Sources */,
 				54C0BF781C92047100D6A9E8 /* ExchangeRate.swift in Sources */,
 				54C0BF5F1C91E60A00D6A9E8 /* PriceConverter.swift in Sources */,
+				54FE746E1C95FCF20086C825 /* Shop.swift in Sources */,
+				54FE74761C96003D0086C825 /* ExchangeRatesServer.swift in Sources */,
 				54C0BF5A1C91E3C500D6A9E8 /* Price.swift in Sources */,
 				54C0BF871C92C38800D6A9E8 /* ExchangeRates.swift in Sources */,
 			);
@@ -551,7 +567,7 @@
 				INFOPLIST_FILE = Shopping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = ch.romi.Shopping;
+				PRODUCT_BUNDLE_IDENTIFIER = roland.michelberger.Shopping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -563,7 +579,7 @@
 				INFOPLIST_FILE = Shopping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = ch.romi.Shopping;
+				PRODUCT_BUNDLE_IDENTIFIER = roland.michelberger.Shopping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

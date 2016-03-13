@@ -10,7 +10,7 @@ import Foundation
 
 class PriceConverter {
     
-    static let ERROR_DOMAIN = "ch.miro.shopping.PriceConverter"
+    static let ERROR_DOMAIN = "roland.michelberger.shopping.PriceConverter"
     
     static let NO_RESPONSE_DATA_RECEIVED = -1
     static let NO_RATE_RECEIVED = -2
@@ -38,7 +38,7 @@ class PriceConverter {
     }
     
     class func convertPrice(price: Price, exchangeRate: ExchangeRate) -> Price? {
-        // make sure, that the exchange rate is for the price to be converted
+        // make sure, that the exchange rate currency is the same as for the price to be converted
         guard price.currency == exchangeRate.from else {
             return nil
         }
@@ -47,7 +47,7 @@ class PriceConverter {
     
     class func exChangeRates(currency: Currency, completion: (exchangeRates: ExchangeRates?, error: NSError?) -> Void) {
         #if MOCK
-            MockServer.exchangeRatesData(currency) { (data, error) -> Void in
+            MockExchangeRatesServer.exchangeRatesData(currency) { (data, error) -> Void in
                 if let _ = error {
                     completion(exchangeRates:nil, error: error)
                 } else if let data = data {
@@ -65,7 +65,7 @@ class PriceConverter {
                 }
             }
         #else
-            Server.exchangeRatesData(currency) { (data, error) -> Void in
+            ExchangeRatesServer.exchangeRatesData(currency) { (data, error) -> Void in
                 if let _ = error {
                     completion(exchangeRates:nil, error: error)
                 } else if let data = data {
@@ -85,86 +85,4 @@ class PriceConverter {
         #endif
     }
     
-    
-    /**
-     * Converts a price to another currency
-     * @param price: price to be converted
-     * @param toCurrency: currency to convert
-     * @param completion: block called with the converted price or error
-     */
-    class func convertPrice(price: Price, toCurrency: Currency, completion: (price: Price?, error: NSError?) -> Void) {
-        // if the two currencies are the same
-        // return the original price
-        if (toCurrency == price.currency) {
-            completion(price: price, error: nil)
-        }
-            // get conversion rate
-        else {
-            exchangeRate(price.currency, to: toCurrency, completion: { (exchangeRate, error) -> Void in
-                if let _ = error {
-                    completion(price: nil, error: error)
-                } else if let exchangeRate = exchangeRate {
-                    let amount = price.amount.decimalNumberByMultiplyingBy(NSDecimalNumber(double: exchangeRate.rate))
-                    let convertedPrice = Price(amount: amount, currency: toCurrency)
-                    completion(price: convertedPrice, error: nil)
-                }
-            })
-        }
-    }
-    
-    /**
-     * Gets exchange rate
-     * @param from: currency to convert from
-     * @param to: currency to convert to
-     * @param completion: block called with the exchange rate or error
-     */
-    class func exchangeRate(from: Currency, to: Currency, completion: (exchangeRate: ExchangeRate?, error: NSError?) -> Void) {
-        // if the two currencies are the same
-        // return 1
-        if (to == from) {
-            completion(exchangeRate: ExchangeRate(from: from, to: to, rate: 1), error: nil)
-        }
-            // get conversion rate
-        else {
-            #if MOCK
-                MockServer.exchangeRateData(from, to: to, completion: { (data, error) -> Void in
-                    if let _ = error {
-                        completion(exchangeRate: nil, error: error)
-                    } else if let data = data {
-                        let result = JSONParser.exchangeRateFromJSONRateResponseData(data)
-                        
-                        if let _ = result.error {
-                            completion(exchangeRate: nil, error: result.error)
-                        } else if let exchangeRate = result.exchangeRate {
-                            completion(exchangeRate: exchangeRate, error: nil)
-                        } else {
-                            completion(exchangeRate: nil, error: NSError(domain: ERROR_DOMAIN, code: NO_RATE_RECEIVED, userInfo: [NSLocalizedDescriptionKey : "No exchange rate received."]))
-                        }
-                    } else {
-                        completion(exchangeRate: nil, error: NSError(domain: ERROR_DOMAIN, code: NO_RESPONSE_DATA_RECEIVED, userInfo: [NSLocalizedDescriptionKey : "No response data received."]))
-                    }
-                    
-                })
-            #else
-                Server.exchangeRateData(from, to: to, completion: { (data, error) -> Void in
-                    if let _ = error {
-                        completion(exchangeRate: nil, error: error)
-                    } else if let data = data {
-                        let result = JSONParser.exchangeRateFromJSONRateResponseData(data)
-                        
-                        if let _ = result.error {
-                            completion(exchangeRate: nil, error: result.error)
-                        } else if let exchangeRate = result.exchangeRate {
-                            completion(exchangeRate: exchangeRate, error: nil)
-                        } else {
-                            completion(exchangeRate: nil, error: NSError(domain: ERROR_DOMAIN, code: NO_RATE_RECEIVED, userInfo: [NSLocalizedDescriptionKey : "No exchange rate received."]))
-                        }
-                    } else {
-                        completion(exchangeRate: nil, error: NSError(domain: ERROR_DOMAIN, code: NO_RESPONSE_DATA_RECEIVED, userInfo: [NSLocalizedDescriptionKey : "No response data received."]))
-                    }
-                    
-                })
-            #endif
-        }
-    }
 }

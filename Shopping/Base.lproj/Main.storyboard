@@ -151,15 +151,26 @@
                                     <action selector="increaseCounter" destination="ou4-c1-mMd" eventType="touchUpInside" id="Nhz-fx-PM7"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1yX-63-gdW">
+                                <rect key="frame" x="0.0" y="139" width="600" height="398"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ErM-tU-Zn8" secondAttribute="trailing" constant="20" id="0ue-JE-4Iu"/>
                             <constraint firstItem="fKX-xi-snc" firstAttribute="top" secondItem="cFO-Li-Xw0" secondAttribute="bottom" constant="15" id="6tY-9Z-NzI"/>
                             <constraint firstItem="ErM-tU-Zn8" firstAttribute="top" secondItem="qX4-AN-98D" secondAttribute="bottom" constant="8" id="7lx-CE-h0s"/>
+                            <constraint firstItem="1yX-63-gdW" firstAttribute="leading" secondItem="OUQ-wk-s5J" secondAttribute="leading" id="Cz1-2c-D7D"/>
                             <constraint firstItem="cFO-Li-Xw0" firstAttribute="width" secondItem="KUi-KF-CXP" secondAttribute="width" id="FOS-rv-nZd"/>
                             <constraint firstItem="Rbt-dy-LEd" firstAttribute="top" secondItem="ErM-tU-Zn8" secondAttribute="bottom" constant="8" id="HDl-La-AxY"/>
                             <constraint firstItem="ErM-tU-Zn8" firstAttribute="leading" secondItem="OUQ-wk-s5J" secondAttribute="leading" constant="20" id="If8-ir-YfP"/>
+                            <constraint firstItem="KUi-KF-CXP" firstAttribute="top" secondItem="1yX-63-gdW" secondAttribute="bottom" constant="8" id="QYZ-LQ-R2s"/>
+                            <constraint firstAttribute="trailing" secondItem="1yX-63-gdW" secondAttribute="trailing" id="Xd8-Kg-JeL"/>
+                            <constraint firstItem="1yX-63-gdW" firstAttribute="top" secondItem="Rbt-dy-LEd" secondAttribute="bottom" constant="8" id="dWS-xI-p9h"/>
                             <constraint firstItem="fKX-xi-snc" firstAttribute="top" secondItem="KUi-KF-CXP" secondAttribute="bottom" constant="15" id="m57-9P-4Gi"/>
                             <constraint firstAttribute="trailing" secondItem="KUi-KF-CXP" secondAttribute="trailing" constant="15" id="pMG-1f-jKf"/>
                             <constraint firstAttribute="trailing" secondItem="Rbt-dy-LEd" secondAttribute="trailing" constant="15" id="xOD-5H-IWo"/>
@@ -170,6 +181,7 @@
                     </view>
                     <connections>
                         <outlet property="amountLabel" destination="Rbt-dy-LEd" id="fWa-6G-Gc0"/>
+                        <outlet property="infoTextView" destination="1yX-63-gdW" id="8TX-1A-tHs"/>
                         <outlet property="unitPriceInfoLabel" destination="ErM-tU-Zn8" id="9E0-5T-lwk"/>
                     </connections>
                 </viewController>
@@ -202,7 +214,7 @@
                                 <rect key="frame" x="0.0" y="101" width="600" height="499"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Fd0-UH-xdV" style="IBUITableViewCellStyleDefault" id="uyr-Lh-y86">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Fd0-UH-xdV" detailTextLabel="BTC-Jg-8O3" style="IBUITableViewCellStyleSubtitle" id="uyr-Lh-y86">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uyr-Lh-y86" id="agP-nA-yD5">
@@ -210,9 +222,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fd0-UH-xdV">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                                    <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BTC-Jg-8O3">
+                                                    <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

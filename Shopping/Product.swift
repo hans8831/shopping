@@ -12,12 +12,14 @@ class Product {
     let name : String
     let unitName : String
     let unitPrice: Price
+    let info: String
     
-    init(id: String, name: String, unitName: String, unitPrice : Price) {
+    init(id: String, name: String, unitName: String, unitPrice : Price, info: String) {
         self.id = id
         self.name = name
         self.unitName = unitName
         self.unitPrice = unitPrice
+        self.info = info
     }
 }
 

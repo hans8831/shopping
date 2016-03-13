@@ -12,6 +12,7 @@ class ProductDetailViewController: UIViewController {
 
     @IBOutlet weak var unitPriceInfoLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var infoTextView: UITextView!
 
     var product: Product?
     var bag: ProductBag?
@@ -20,8 +21,9 @@ class ProductDetailViewController: UIViewController {
         super.viewDidLoad()
 
         title = product?.name
-        
         unitPriceInfoLabel.text = product?.priceInfo
+        infoTextView.text = product?.info
+        
         updateAmountLabel()
     }
 

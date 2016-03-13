@@ -26,7 +26,8 @@ class ServerTests: XCTestCase {
         
         let expectation = expectationWithDescription("The completion should be called.")
         
-        Server.exchangeRateData(Currency.EUR, to: Currency.CHF) { (data, error) -> Void in
+        let currency = Currency.EUR
+        Server.exchangeRatesData(currency) { (data, error) -> Void in
             // there should be no error
             XCTAssertNil(error)
             // there should be data
@@ -44,9 +45,10 @@ class ServerTests: XCTestCase {
         
         let expectation = expectationWithDescription("The completion should be called.")
         
-        let fromCurrency = Currency.EUR
-        let toCurrency = Currency.CHF
-        Server.exchangeRateData(fromCurrency, to: toCurrency) { (data, error) -> Void in
+        let currency = Currency.EUR
+        
+        Server.exchangeRatesData(currency) { (data, error) -> Void in
+
             XCTAssertNil(error)
             XCTAssertNotNil(data)
             
@@ -55,17 +57,6 @@ class ServerTests: XCTestCase {
                 let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
                 
                 if let dict = json as? [String: AnyObject] {
-                    
-                    if let exchangeRate = ExchangeRate(dict: dict) {
-                        
-                        XCTAssertEqual(exchangeRate.from, fromCurrency)
-                        XCTAssertEqual(exchangeRate.to, toCurrency)
-                        XCTAssert(0.5 <= exchangeRate.rate && exchangeRate.rate <= 1.5)
-                        print("from: \(exchangeRate.from) to: \(exchangeRate.to) = \(exchangeRate.rate)")
-                        
-                    } else {
-                        XCTAssert(false, "\(dict) can not be converted to ExchangeRate")
-                    }
                     
                 } else {
                     XCTAssert(false, "\(json) is not [String: AnyObject]")

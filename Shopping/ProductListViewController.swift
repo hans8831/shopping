@@ -14,25 +14,18 @@ class ProductListViewController: UIViewController, UITableViewDataSource {
     
     let bag = ProductBag(currency: .USD)
     
-    let products = [Product](arrayLiteral:
-        Product(id: "_id_peas", name: "peas", unitName: "bag", unitPrice: Price(amount: NSDecimalNumber(double: 0.95), currency: .USD)),
-        Product(id: "_id_eggs", name: "eggs", unitName: "dozen", unitPrice: Price(amount: NSDecimalNumber(double: 2.1), currency: .USD)),
-        Product(id: "_id_milk", name: "milk", unitName: "bottle", unitPrice: Price(amount: NSDecimalNumber(double: 1.3), currency: .USD)),
-        Product(id: "_id_beans", name: "beans", unitName: "can", unitPrice: Price(amount: NSDecimalNumber(double: 0.73), currency: .USD))
-    )
+    let products = Shop.products
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
-        bag.addProduct(products[2])
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
-        
+
+        tableView.reloadData()        
         navigationItem.rightBarButtonItem?.enabled = bag.count > 0
     }
     
@@ -72,8 +65,7 @@ class ProductListViewController: UIViewController, UITableViewDataSource {
         cell.textLabel?.text = "\(product.name): \(bag.countForProduct(product))"
         cell.detailTextLabel?.text = "\(product.priceInfo)"
         
-        return cell
-        
+        return cell        
     }
     
 }

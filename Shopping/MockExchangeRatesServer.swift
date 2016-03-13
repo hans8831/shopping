@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MockServer: ExchangeRatesServer {
+class MockExchangeRatesServer: ExchangeRatesServer {
     
     private static var delay = 1.0
     
@@ -36,7 +36,5 @@ class MockServer: ExchangeRatesServer {
         
         return nil
     }
-    
-    
     
 }

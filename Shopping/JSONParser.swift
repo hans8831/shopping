@@ -10,7 +10,7 @@ import Foundation
 
 class JSONParser {
     
-    static let ERROR_DOMAIN = "ch.miro.shopping.JSONParser"
+    static let ERROR_DOMAIN = "roland.michelberger.shopping.JSONParser"
     
     static let RATE_JSON_PARSING_ERROR_CODE = -1
     static let RATE_JSON_WRONG_RESPONSE_FORMAT_ERROR_CODE = -2    
