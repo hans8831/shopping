@@ -41,10 +41,14 @@
         <key>NSExceptionDomains</key>
         <dict>
             <key>apilayer.net</key>
-            <dict/>
-            <key>NSExceptionAllowsInsecureHTTPLoads</key>
-            <true/>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSTemporaryExceptionMinimumTLSVersion</key>
+                <string>TLSv1.1</string>
+            </dict>
         </dict>
-    </dict>
-</dict>
+    </dict></dict>
 </plist>
