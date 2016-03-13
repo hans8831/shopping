@@ -9,7 +9,7 @@
 import XCTest
 
 class ExchangeRatesServerTests: XCTestCase {
-        
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -48,27 +48,39 @@ class ExchangeRatesServerTests: XCTestCase {
         let currency = Currency.EUR
         
         ExchangeRatesServer.exchangeRatesData(currency) { (data, error) -> Void in
-
+            
             XCTAssertNil(error)
             XCTAssertNotNil(data)
             
             // data should be JSON string
             do {
-                let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
-                
-                if let dict = json as? [String: AnyObject] {
-                    
-                } else {
-                    XCTAssert(false, "\(json) is not [String: AnyObject]")
-                }
-                
+                let _ = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
             } catch {
                 XCTAssertNil(error)
             }
             
+            // data should be [String: AnyObject
+            let result = self.dictFromData(data!)
+            
+            XCTAssertNil(result.error)
+            if let dict = result.dict {
+                
+                // parse JSON
+                
+                
+            } else {
+                XCTAssert(false, "JSON is not [String: AnyObject]")
+            }
+            
+            
+            
             expectation.fulfill()
         }
         waitForExpectationsWithTimeout(2, handler: nil)
+    }
+    
+    func dictFromData(data: NSData) -> (dict: [String: AnyObject]?, error: NSError?) {
+        return JSONParser.dictFromJSONData(data)
     }
     
     func testPerformanceExample() {
