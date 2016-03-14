@@ -39,7 +39,6 @@
 		54C0BF781C92047100D6A9E8 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF751C92047100D6A9E8 /* ExchangeRate.swift */; };
 		54C0BF7A1C92079D00D6A9E8 /* MockExchangeRatesServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF791C92079D00D6A9E8 /* MockExchangeRatesServer.swift */; };
 		54C0BF7B1C92079D00D6A9E8 /* MockExchangeRatesServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF791C92079D00D6A9E8 /* MockExchangeRatesServer.swift */; };
-		54C0BF7C1C92079D00D6A9E8 /* MockExchangeRatesServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF791C92079D00D6A9E8 /* MockExchangeRatesServer.swift */; };
 		54C0BF7E1C920CAC00D6A9E8 /* PriceConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF7D1C920CAC00D6A9E8 /* PriceConverterTests.swift */; };
 		54C0BF801C92AAE400D6A9E8 /* MockServerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF7F1C92AAE400D6A9E8 /* MockServerTest.swift */; };
 		54C0BF831C92BB1500D6A9E8 /* ExchangeRatesServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF821C92BB1500D6A9E8 /* ExchangeRatesServerTests.swift */; };
@@ -61,7 +60,8 @@
 		54FE74761C96003D0086C825 /* ExchangeRatesServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FE74731C96003D0086C825 /* ExchangeRatesServer.swift */; };
 		54FE74781C9606840086C825 /* exchangeRates.json in Resources */ = {isa = PBXBuildFile; fileRef = 54FE74771C9606840086C825 /* exchangeRates.json */; };
 		54FE74791C9606840086C825 /* exchangeRates.json in Resources */ = {isa = PBXBuildFile; fileRef = 54FE74771C9606840086C825 /* exchangeRates.json */; };
-		54FE747A1C9606840086C825 /* exchangeRates.json in Resources */ = {isa = PBXBuildFile; fileRef = 54FE74771C9606840086C825 /* exchangeRates.json */; };
+		54FE747B1C96A37B0086C825 /* MockExchangeRatesServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF791C92079D00D6A9E8 /* MockExchangeRatesServer.swift */; };
+		54FE747C1C96A37E0086C825 /* exchangeRates.json in Resources */ = {isa = PBXBuildFile; fileRef = 54FE74771C9606840086C825 /* exchangeRates.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -374,7 +374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54FE747A1C9606840086C825 /* exchangeRates.json in Resources */,
+				54FE747C1C96A37E0086C825 /* exchangeRates.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54FE747B1C96A37B0086C825 /* MockExchangeRatesServer.swift in Sources */,
 				54C0BF6C1C92007400D6A9E8 /* Server.swift in Sources */,
 				54C0BF671C91F91700D6A9E8 /* Currency.swift in Sources */,
 				54FE746A1C9316F20086C825 /* BasketViewController.swift in Sources */,
@@ -441,7 +442,6 @@
 				54C0BF441C91E22D00D6A9E8 /* ShoppingUITests.swift in Sources */,
 				54FE74671C93038D0086C825 /* ProductDetailViewController.swift in Sources */,
 				54C0BF561C91E28C00D6A9E8 /* Product.swift in Sources */,
-				54C0BF7C1C92079D00D6A9E8 /* MockExchangeRatesServer.swift in Sources */,
 				54C0BF781C92047100D6A9E8 /* ExchangeRate.swift in Sources */,
 				54C0BF5F1C91E60A00D6A9E8 /* PriceConverter.swift in Sources */,
 				54FE746E1C95FCF20086C825 /* Shop.swift in Sources */,

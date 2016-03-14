@@ -10,6 +10,8 @@ import XCTest
 
 class ExchangeRatesServerTests: XCTestCase {
     
+    let timeOut = 20.0
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -36,51 +38,55 @@ class ExchangeRatesServerTests: XCTestCase {
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(20, handler: nil)
+        waitForExpectationsWithTimeout(timeOut, handler: nil)
     }
     
-    func testServerExchangeRate() {
+    func testServerExchangeRates() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
         let expectation = expectationWithDescription("The completion should be called.")
         
-        let currency = Currency.EUR
-        
+//        let currency = Currency.EUR
+        let currency = Currency.USD
+      
         ExchangeRatesServer.exchangeRatesData(currency) { (data, error) -> Void in
             
             XCTAssertNil(error)
             XCTAssertNotNil(data)
             
-            // data should be JSON string
-            do {
-                let _ = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
-            } catch {
-                XCTAssertNil(error)
+            let result = JSONParser.exchangeRatesFromJSONRateResponseData(data!)
+            
+            if currency == .USD {
+                // there should be no error
+                XCTAssertNil(result.error)
+                
+                // there should be the exchange rates
+                XCTAssertNotNil(result.exchangeRates)
+                
+                if let exchangeRates = result.exchangeRates {
+                    
+                    // source currency should be equal
+                    XCTAssertEqual(exchangeRates.source, currency)
+                    
+                    for exchangeRate in exchangeRates.quotes {
+                        XCTAssert(exchangeRate.rate >= 0)
+                    }
+                    
+                } else {
+                    XCTAssert(false, "JSON is not [String: AnyObject]")
+                }
             }
-            
-            // data should be [String: AnyObject
-            let result = self.dictFromData(data!)
-            
-            XCTAssertNil(result.error)
-            if let dict = result.dict {
-                
-                // parse JSON
-                
-                
-            } else {
-                XCTAssert(false, "JSON is not [String: AnyObject]")
+                // the free plan only supports USD
+                // all other currency will fail
+            else {
+                // there should be a parsing error
+                XCTAssertNotNil(result.error)
             }
-            
-            
             
             expectation.fulfill()
         }
-        waitForExpectationsWithTimeout(2, handler: nil)
-    }
-    
-    func dictFromData(data: NSData) -> (dict: [String: AnyObject]?, error: NSError?) {
-        return JSONParser.dictFromJSONData(data)
+        waitForExpectationsWithTimeout(timeOut, handler: nil)
     }
     
     func testPerformanceExample() {

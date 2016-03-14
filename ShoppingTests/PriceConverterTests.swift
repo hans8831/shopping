@@ -9,7 +9,9 @@
 import XCTest
 
 class PriceConverterTests: XCTestCase {
-        
+    
+    let timeOut = 20.0
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -23,29 +25,39 @@ class PriceConverterTests: XCTestCase {
     func testPriceConverterWithMockServer() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-
+        
         let expectation = expectationWithDescription("The completion should be called.")
-
+        
         let price = Price(amount: NSDecimalNumber(double: 1.0), currency: .USD)
         
         PriceConverter.pricesForPrice(price) { (prices, error) -> Void in
-
+            
             // there should be no error
             XCTAssertNil(error)
             // there should be data
             XCTAssertNotNil(prices)
             
+            #if MOCK
+                self.testMockPrices(prices!)
+            #endif
+            
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(3, handler: nil)
-
+        waitForExpectationsWithTimeout(timeOut, handler: nil)
+        
     }
     
-    func testPrices(prices: [Price]) {
-        
-        
-        
+    func testMockPrices(prices: [Price]) {
+        for price in prices {
+            switch price.currency {
+            case .EUR:
+                XCTAssertEqual(price.amount, NSDecimalNumber(double: 0.898432))
+            case .CHF:
+                XCTAssertEqual(price.amount, NSDecimalNumber(double: 0.98605))
+            default:()
+            }
+        }
     }
     
     func testPerformanceExample() {

@@ -35,7 +35,13 @@ struct ExchangeRates {
         var quotes = [ExchangeRate]()
         
         for key in quotesDict.keys {
-            let currency = Currency(string: key.stringByReplacingOccurrencesOfString(source.rawValue, withString: ""))
+            
+            let currencyString = key.stringByReplacingOccurrencesOfString(source.rawValue, withString: "")
+            guard !currencyString.isEmpty else {
+                continue
+            }
+            
+            let currency = Currency(string: currencyString)
             if let rate = quotesDict[key]?.doubleValue {
                 let exchangeRate = ExchangeRate(from: source, to: currency, rate: rate)
                 quotes.append(exchangeRate)

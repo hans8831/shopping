@@ -10,6 +10,8 @@ import XCTest
 
 class MockServerTest: XCTestCase {
     
+    let timeOut = 2.0
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -48,7 +50,7 @@ class MockServerTest: XCTestCase {
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(3, handler: nil)
+        waitForExpectationsWithTimeout(timeOut, handler: nil)
     }
     
     
@@ -67,7 +69,7 @@ class MockServerTest: XCTestCase {
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(2, handler: nil)
+        waitForExpectationsWithTimeout(timeOut, handler: nil)
     }
     
     func testPerformanceExample() {
