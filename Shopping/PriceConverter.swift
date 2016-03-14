@@ -47,6 +47,11 @@ class PriceConverter {
         #endif
     }
     
+    /**
+     * Convert price with exchange rates to prices
+     * @param price: price to be converted
+     * @param exchangeRates: the exchange rates to use for converting
+     */
     class func pricesForPrice(price: Price, withExchangeRates exchangeRates: ExchangeRates) -> [Price] {
         var prices = [Price]()
         
@@ -57,15 +62,16 @@ class PriceConverter {
         }
         return prices
     }
-
+    
     /**
-     * Convert price with exchange rat
-     * @param price: price to be converterd
+     * Convert price with exchange rate
+     * @param price: price to be converted
      * @param exchangeRate: the exchange rate to use for converting
      */
     class func convertPrice(price: Price, exchangeRate: ExchangeRate) -> Price? {
         // make sure, that the exchange rate currency is the same as for the price to be converted
         guard price.currency == exchangeRate.from else {
+            print("convert price error: price: \(price) has different currency as exchange rate from currency: \(exchangeRate)")
             return nil
         }
         return Price(amount: price.amount.decimalNumberByMultiplyingBy(NSDecimalNumber(double: exchangeRate.rate)), currency: exchangeRate.to)
@@ -96,6 +102,7 @@ class PriceConverter {
         }
     }
     
+    #if MOCK
     // MARK: - Mock
     
     class func mockExchangeRates(currency: Currency, completion: (exchangeRates: ExchangeRates?, error: NSError?) -> Void) {
@@ -117,4 +124,5 @@ class PriceConverter {
             }
         }
     }
+    #endif
 }

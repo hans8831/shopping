@@ -8,6 +8,7 @@
 
 struct Constants {
     
-    static let JSON_RATES_API_KEY = "YOUR-API-KEY"
+    static let CURRENCY_LAYER_API_KEY = "YOUR-API-KEY"
+    static let CURRENCY_LAYER_BASE_URL = "http://apilayer.net"
     
 }
