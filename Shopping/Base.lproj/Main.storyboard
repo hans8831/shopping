@@ -79,7 +79,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Products" id="0ln-y5-HXz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Asb-gE-7mL">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="basketIcon" id="Asb-gE-7mL">
                             <connections>
                                 <segue destination="pe9-q6-yJd" kind="show" id="Rrt-kM-dR3"/>
                             </connections>
@@ -124,7 +124,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFO-Li-Xw0">
-                                <rect key="frame" x="15" y="545" width="277.5" height="40"/>
+                                <rect key="frame" x="15" y="545" width="278" height="40"/>
                                 <color key="backgroundColor" red="0.0078431372550000003" green="0.49803921569999998" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bOb-gq-ZQi"/>
@@ -138,7 +138,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUi-KF-CXP">
-                                <rect key="frame" x="307.5" y="545" width="277.5" height="40"/>
+                                <rect key="frame" x="308" y="545" width="277" height="40"/>
                                 <color key="backgroundColor" red="0.0078431372550000003" green="0.49803921569999998" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="WOw-wC-p27"/>
@@ -265,4 +265,7 @@
             <point key="canvasLocation" x="809" y="855"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="basketIcon" width="30" height="30"/>
+    </resources>
 </document>

@@ -24,7 +24,7 @@ class BasketViewController: UIViewController, UITableViewDataSource {
         title = "Basket"
         
         if let bag = bag {
-            totalAmountLabel.text = bag.totalPrice.asString
+            totalAmountLabel.text = "total: \(bag.totalPrice.asString)"
         } else {
             totalAmountLabel.text = "-"
         }
