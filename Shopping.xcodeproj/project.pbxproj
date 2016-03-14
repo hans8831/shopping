@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		542D75B11C96B51A00147BFC /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542D75B01C96B51A00147BFC /* Unit.swift */; };
+		542D75B21C96B51A00147BFC /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542D75B01C96B51A00147BFC /* Unit.swift */; };
+		542D75B31C96B51A00147BFC /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542D75B01C96B51A00147BFC /* Unit.swift */; };
+		542D75B41C96B71000147BFC /* ProductBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FE74621C92F8E70086C825 /* ProductBag.swift */; };
 		54C0BF241C91E22D00D6A9E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0BF231C91E22D00D6A9E8 /* AppDelegate.swift */; };
 		54C0BF291C91E22D00D6A9E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54C0BF271C91E22D00D6A9E8 /* Main.storyboard */; };
 		54C0BF2B1C91E22D00D6A9E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54C0BF2A1C91E22D00D6A9E8 /* Assets.xcassets */; };
@@ -82,6 +86,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		542D75B01C96B51A00147BFC /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		54C0BF201C91E22D00D6A9E8 /* Shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C0BF231C91E22D00D6A9E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54C0BF281C91E22D00D6A9E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -207,6 +212,7 @@
 				54C0BF751C92047100D6A9E8 /* ExchangeRate.swift */,
 				54C0BF841C92C38800D6A9E8 /* ExchangeRates.swift */,
 				54FE74621C92F8E70086C825 /* ProductBag.swift */,
+				542D75B01C96B51A00147BFC /* Unit.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -388,6 +394,7 @@
 				54FE74691C9316F20086C825 /* BasketViewController.swift in Sources */,
 				54C0BF5D1C91E60A00D6A9E8 /* PriceConverter.swift in Sources */,
 				54C0BF6E1C92009700D6A9E8 /* JSONParser.swift in Sources */,
+				542D75B11C96B51A00147BFC /* Unit.swift in Sources */,
 				54FE74661C93038D0086C825 /* ProductDetailViewController.swift in Sources */,
 				54FE74631C92F8E70086C825 /* ProductBag.swift in Sources */,
 				54C0BF581C91E3C500D6A9E8 /* Price.swift in Sources */,
@@ -412,6 +419,7 @@
 				54C0BF801C92AAE400D6A9E8 /* MockServerTest.swift in Sources */,
 				54C0BF6B1C92007400D6A9E8 /* Server.swift in Sources */,
 				54C0BF661C91F91700D6A9E8 /* Currency.swift in Sources */,
+				542D75B21C96B51A00147BFC /* Unit.swift in Sources */,
 				54C0BF6F1C92009700D6A9E8 /* JSONParser.swift in Sources */,
 				54C0BF861C92C38800D6A9E8 /* ExchangeRates.swift in Sources */,
 				54C0BF621C91EC2400D6A9E8 /* Constants.swift in Sources */,
@@ -434,10 +442,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				54FE747B1C96A37B0086C825 /* MockExchangeRatesServer.swift in Sources */,
+				542D75B41C96B71000147BFC /* ProductBag.swift in Sources */,
 				54C0BF6C1C92007400D6A9E8 /* Server.swift in Sources */,
 				54C0BF671C91F91700D6A9E8 /* Currency.swift in Sources */,
 				54FE746A1C9316F20086C825 /* BasketViewController.swift in Sources */,
 				54C0BF701C92009700D6A9E8 /* JSONParser.swift in Sources */,
+				542D75B31C96B51A00147BFC /* Unit.swift in Sources */,
 				54C0BF631C91EC2400D6A9E8 /* Constants.swift in Sources */,
 				54C0BF441C91E22D00D6A9E8 /* ShoppingUITests.swift in Sources */,
 				54FE74671C93038D0086C825 /* ProductDetailViewController.swift in Sources */,

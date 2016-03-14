@@ -10,14 +10,14 @@ class Product {
     
     let id : String
     let name : String
-    let unitName : String
+    let unit : Unit
     let unitPrice: Price
     let info: String
     
-    init(id: String, name: String, unitName: String, unitPrice : Price, info: String) {
+    init(id: String, name: String, unit: Unit, unitPrice : Price, info: String) {
         self.id = id
         self.name = name
-        self.unitName = unitName
+        self.unit = unit
         self.unitPrice = unitPrice
         self.info = info
     }
@@ -27,7 +27,7 @@ extension Product {
     
     var priceInfo : String {
         get {
-            return "\(unitPrice.asString) / \(unitName)"
+            return "\(unitPrice.asString) / \(unit.rawValue)"
         }
     }
     
