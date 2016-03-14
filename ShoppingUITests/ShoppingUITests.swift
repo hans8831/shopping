@@ -9,7 +9,7 @@
 import XCTest
 
 class ShoppingUITests: XCTestCase {
-        
+    
     override func setUp() {
         super.setUp()
         
@@ -28,9 +28,63 @@ class ShoppingUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testShopping() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let app = XCUIApplication()
+        
+        // open milk
+        app.tables.cells.elementBoundByIndex(2).tap()
+        
+        XCTAssert(app.staticTexts["0"].exists)
+        
+        // add milk
+        let button = app.buttons["+"]
+        button.tap()
+        
+        XCTAssert(app.staticTexts["1"].exists)
+        
+        // navigate back
+        app.navigationBars["milk"].buttons["Products"].tap()
+        
+        // open eggs
+        app.tables.cells.elementBoundByIndex(1).tap()
+        
+        XCTAssert(app.staticTexts["0"].exists)
+        
+        // add eggs
+        button.tap()
+        button.tap()
+        
+        // there should be 2 eggs
+        XCTAssert(app.staticTexts["2"].exists)
+        
+        // navigate back
+        app.navigationBars["eggs"].buttons["Products"].tap()
+        
+        // open milk
+        app.tables.cells.elementBoundByIndex(2).tap()
+        
+        XCTAssert(app.staticTexts["1"].exists)
+        
+        // remove milk
+        app.buttons["-"].tap()
+        
+        XCTAssert(app.staticTexts["0"].exists)
+        
+        // navigate back
+        app.navigationBars["milk"].buttons["Products"].tap()
+        
+        // open basket
+        app.navigationBars["Products"].buttons["basketIcon"].tap()
+        
+        // total price
+        XCTAssert(app.staticTexts["total: USD 4.2"].exists)
+        
+        // navigate back
+        app.navigationBars["Basket"].buttons["Products"].tap()
+        
     }
     
 }
