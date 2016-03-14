@@ -40,12 +40,12 @@ class ProductDetailViewController: UIViewController {
         }
     }
 
-    @IBAction func increaseCounter() {
+    @IBAction func addProduct() {
         bag?.addProduct(product)
         updateAmountLabel()
     }
 
-    @IBAction func decreaseCounter() {
+    @IBAction func removeProduct() {
         bag?.removeProduct(product)
         updateAmountLabel()
     }

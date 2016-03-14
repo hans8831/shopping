@@ -22,29 +22,16 @@ class PriceConverter {
      */
     class func pricesForPrice(price: Price, completion: (prices: [Price]?, error: NSError?) -> Void) {
         // get exchange rates
-        #if MOCK
-            mockExchangeRates(price.currency) { (exchangeRates, error) -> Void in
-                if let _ = error {
-                    completion(prices: nil, error: error)
-                } else if let exchangeRates = exchangeRates {
-                    let prices = pricesForPrice(price, withExchangeRates: exchangeRates)
-                    completion(prices: prices, error: nil)
-                } else {
-                    completion(prices: nil, error: NSError(domain: ERROR_DOMAIN, code: NO_RATE_RECEIVED, userInfo: [NSLocalizedDescriptionKey : "No exchange rates received."]))
-                }
+        exchangeRates(price.currency) { (exchangeRates, error) -> Void in
+            if let _ = error {
+                completion(prices: nil, error: error)
+            } else if let exchangeRates = exchangeRates {
+                let prices = pricesForPrice(price, withExchangeRates: exchangeRates)
+                completion(prices: prices, error: nil)
+            } else {
+                completion(prices: nil, error: NSError(domain: ERROR_DOMAIN, code: NO_RATE_RECEIVED, userInfo: [NSLocalizedDescriptionKey : "No exchange rates received."]))
             }
-        #else
-            exchangeRates(price.currency) { (exchangeRates, error) -> Void in
-                if let _ = error {
-                    completion(prices: nil, error: error)
-                } else if let exchangeRates = exchangeRates {
-                    let prices = pricesForPrice(price, withExchangeRates: exchangeRates)
-                    completion(prices: prices, error: nil)
-                } else {
-                    completion(prices: nil, error: NSError(domain: ERROR_DOMAIN, code: NO_RATE_RECEIVED, userInfo: [NSLocalizedDescriptionKey : "No exchange rates received."]))
-                }
-            }
-        #endif
+        }
     }
     
     /**
@@ -77,6 +64,35 @@ class PriceConverter {
         return Price(amount: price.amount.decimalNumberByMultiplyingBy(NSDecimalNumber(double: exchangeRate.rate)), currency: exchangeRate.to)
     }
     
+    #if MOCK
+
+    /**
+    * Get mock exhcange rates for currency
+    * @param currency: the source currency
+    * @param completion: the completion block with the exchange rates or error
+    */
+    class func exchangeRates(currency: Currency, completion: (exchangeRates: ExchangeRates?, error: NSError?) -> Void) {
+        MockExchangeRatesServer.exchangeRatesData(currency) { (data, error) -> Void in
+            if let _ = error {
+                completion(exchangeRates:nil, error: error)
+            } else if let data = data {
+                let result = JSONParser.exchangeRatesFromJSONRateResponseData(data)
+                
+                if let _ = result.error {
+                    completion(exchangeRates: nil, error: result.error)
+                } else if let _ = result.exchangeRates {
+                    completion(exchangeRates: result.exchangeRates, error: nil)
+                } else {
+                    completion(exchangeRates: nil, error: NSError(domain: ERROR_DOMAIN, code: NO_RATE_RECEIVED, userInfo: [NSLocalizedDescriptionKey : "No exchange rates received."]))
+                }
+            } else {
+                completion(exchangeRates: nil, error: NSError(domain: ERROR_DOMAIN, code: NO_RESPONSE_DATA_RECEIVED, userInfo: [NSLocalizedDescriptionKey : "No response data received."]))
+            }
+        }
+    }
+    
+    #else
+    
     /**
      * Get exhcange rates for currency
      * @param currency: the source currency
@@ -102,27 +118,6 @@ class PriceConverter {
         }
     }
     
-    #if MOCK
-    // MARK: - Mock
     
-    class func mockExchangeRates(currency: Currency, completion: (exchangeRates: ExchangeRates?, error: NSError?) -> Void) {
-        MockExchangeRatesServer.exchangeRatesData(currency) { (data, error) -> Void in
-            if let _ = error {
-                completion(exchangeRates:nil, error: error)
-            } else if let data = data {
-                let result = JSONParser.exchangeRatesFromJSONRateResponseData(data)
-                
-                if let _ = result.error {
-                    completion(exchangeRates: nil, error: result.error)
-                } else if let _ = result.exchangeRates {
-                    completion(exchangeRates: result.exchangeRates, error: nil)
-                } else {
-                    completion(exchangeRates: nil, error: NSError(domain: ERROR_DOMAIN, code: NO_RATE_RECEIVED, userInfo: [NSLocalizedDescriptionKey : "No exchange rates received."]))
-                }
-            } else {
-                completion(exchangeRates: nil, error: NSError(domain: ERROR_DOMAIN, code: NO_RESPONSE_DATA_RECEIVED, userInfo: [NSLocalizedDescriptionKey : "No response data received."]))
-            }
-        }
-    }
     #endif
 }

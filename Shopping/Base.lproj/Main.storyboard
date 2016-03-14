@@ -134,7 +134,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="decreaseCounter" destination="ou4-c1-mMd" eventType="touchUpInside" id="cCv-cz-uzi"/>
+                                    <action selector="removeProduct" destination="ou4-c1-mMd" eventType="touchUpInside" id="XXm-b4-S8R"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUi-KF-CXP">
@@ -148,7 +148,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="increaseCounter" destination="ou4-c1-mMd" eventType="touchUpInside" id="Nhz-fx-PM7"/>
+                                    <action selector="addProduct" destination="ou4-c1-mMd" eventType="touchUpInside" id="cs3-vr-owS"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1yX-63-gdW">
